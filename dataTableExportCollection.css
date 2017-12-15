@@ -1,0 +1,11 @@
+/*dataTable Exports*/
+
+.dtExport a{
+    padding-left: 30px  !important;
+}
+
+.exportCopy  a{background: url("img/copy.png")         5px center / 20px auto no-repeat scroll;}
+.exportCsv   a{background: url("img/export_csv.png")   5px center / 20px auto no-repeat scroll;}
+.exportExcel a{background: url("img/export_excel.png") 5px center / 20px auto no-repeat scroll;}
+.exportPdf   a{background: url("img/export_pdf.png")   5px center / 20px auto no-repeat scroll;}
+.exportPrint a{background: url("img/printer.png")      5px center / 20px auto no-repeat scroll;}
