@@ -4,7 +4,9 @@
 var buttonCommon = {
     exportOptions: {
         //columns: ':not(:last-child)'
-        columns: [ 0, ':visible' ]
+        //columns: ':not(.action_btns_container)'
+        //columns: [ 0, ':visible' ]
+        columns: [ 0, ':visible:not(.action_btns_container)' ]
     }
 };
 
