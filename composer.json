@@ -1,0 +1,13 @@
+{
+	"name": "EvilKraft/dataTableExportCollection",
+	"type": "datatable-plugin",
+	"description": "Export collection for datatable",
+	"keywords": ["datatable"],
+	"license": "GPL-2.0+",
+	"homepage": "https://github.com/EvilKraft/dataTableExportCollection",
+	"support": {
+	  "issues": "https://github.com/EvilKraft/dataTableExportCollection/issues",
+	  "source": "https://github.com/EvilKraft/dataTableExportCollection"
+	},
+	"require": { }
+}
