@@ -78,7 +78,7 @@ var buttonCommon = {
 jQuery.fn.dataTable.ext.buttons.export_collection = {
 
     extend: 'collection',
-    text: '<i class="fa fa-floppy-o" aria-hidden="true"></i>',
+    text: '<i class="far fa-save" aria-hidden="true"></i>',
     titleAttr: function ( dt ) {
         return dt.i18n( 'buttons.Export', 'Export');
     },
