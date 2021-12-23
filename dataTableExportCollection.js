@@ -2,10 +2,10 @@
  * Created by Kraft on 31.10.2017.
  */
 
-var oldExportAction = function (self, e, dt, button, config) {
+let oldExportAction = function (self, e, dt, button, config) {
 
-    var _dtButtons = $.fn.dataTable.ext.buttons;
-    var btnName    = '';
+    let _dtButtons = $.fn.dataTable.ext.buttons;
+    let btnName    = '';
 
     // Common option that will use the HTML5 or Flash export buttons
 
@@ -21,21 +21,21 @@ var oldExportAction = function (self, e, dt, button, config) {
         btnName = 'print';
     }
 
-    if(btnName != ''){
+    if(btnName !== ''){
         _dtButtons[btnName].action.call(self, e, dt, button, config);
     }
 };
 
-var newExportAction = function (e, dt, button, config) {
-    var self = this;
-    var info = dt.page.info();
+let newExportAction = function (e, dt, button, config) {
+    let self = this;
+    let info = dt.page.info();
 
-    if(info.serverSide == false){
+    if(info.serverSide === false){
         oldExportAction(self, e, dt, button, config);
         return;
     }
 
-    var oldStart = dt.settings()[0]._iDisplayStart;
+    let oldStart = dt.settings()[0]._iDisplayStart;
 
     dt.one('preXhr', function (e, s, data) {
         // Just this once, load all data from the server...
@@ -61,11 +61,11 @@ var newExportAction = function (e, dt, button, config) {
         });
     });
 
-    // Requery the server with the new one-time export settings
+    // Require the server with the new one-time export settings
     dt.ajax.reload();
 };
 
-var buttonCommon = {
+let buttonCommon = {
     action: newExportAction,
     exportOptions: {
         //columns: ':not(:last-child)'
@@ -86,27 +86,22 @@ jQuery.fn.dataTable.ext.buttons.export_collection = {
         $.extend( true, {}, buttonCommon, {
             extend: 'copy',
             className: 'dtExport exportCopy',
-            text: 'Copy',
         }),
         $.extend( true, {}, buttonCommon, {
             extend: 'csv',
             className: 'dtExport exportCsv',
-            text: 'CSV',
         }),
         $.extend( true, {}, buttonCommon, {
             extend: 'excel',
             className: 'dtExport exportExcel',
-            text: 'Excel',
         }),
         $.extend( true, {}, buttonCommon, {
             extend: 'pdf',
             className: 'dtExport exportPdf',
-            text: 'PDF',
         }),
         $.extend( true, {}, buttonCommon, {
             extend: 'print',
             className: 'dtExport exportPrint',
-            text: 'Print',
         }),
     ],
 };
