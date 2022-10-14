@@ -4,26 +4,21 @@
 
 let oldExportAction = function (self, e, dt, button, config) {
 
-    let _dtButtons = $.fn.dataTable.ext.buttons;
-    let btnName    = '';
+    let _dtButtons  = $.fn.dataTable.ext.buttons;
+    let btnName     = '';
+    const classList = button[0].classList;
 
     // Common option that will use the HTML5 or Flash export buttons
-
-    if (button[0].className.indexOf('buttons-copy') >= 0) {
-        btnName = _dtButtons.copy(dt, config);
-    } else if (button[0].className.indexOf('buttons-csv') >= 0){
-        btnName = _dtButtons.csv(dt, config);
-    } else if (button[0].className.indexOf('buttons-excel') >= 0) {
-        btnName = _dtButtons.excel(dt, config);
-    } else if (button[0].className.indexOf('buttons-pdf') >= 0){
-        btnName = _dtButtons.pdf(dt, config);
-    }else if (button[0].className.indexOf('buttons-print') >= 0) {
-        btnName = 'print';
+    switch (true) {
+        case classList.contains('buttons-copy'):  btnName = _dtButtons.copy(dt, config);  break;
+        case classList.contains('buttons-csv'):   btnName = _dtButtons.csv(dt, config);   break;
+        case classList.contains('buttons-excel'): btnName = _dtButtons.excel(dt, config); break;
+        case classList.contains('buttons-pdf'):   btnName = _dtButtons.pdf(dt, config);   break;
+        case classList.contains('buttons-print'): btnName = 'print';                      break;
+        default: return;
     }
 
-    if(btnName !== ''){
-        _dtButtons[btnName].action.call(self, e, dt, button, config);
-    }
+    _dtButtons[btnName].action.call(self, e, dt, button, config);
 };
 
 let newExportAction = function (e, dt, button, config) {
